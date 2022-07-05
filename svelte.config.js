@@ -9,7 +9,10 @@ const dirname = path.resolve(fileURLToPath(import.meta.url), './')
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.svx', '.md'],
-  preprocess: mdsvex({ extensions: ['.svx', '.md'] }),
+  preprocess: [
+		preprocess(),
+		mdsvex({ extensions: ['.svx', '.md'] })
+	],
 
 	kit: {
 		adapter: adapter()
